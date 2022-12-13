@@ -38,6 +38,8 @@ circles[itemActive].classList.add('active');
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 
+
+
 next.addEventListener('click', function(){
      //verifico l'elemento attivo (itemActive)
      const lastActiveItem = items[itemActive]
@@ -103,3 +105,28 @@ prev.addEventListener('click', function(){
  });
 
 
+setInterval(function(){
+    const lastActiveItem = items[itemActive]
+     const lastCircleActive = circles[itemActive]
+ 
+    
+     if ( itemActive == ( items.length - 1 ) )
+     {
+         itemActive = 0;
+     }
+     else
+     {
+         itemActive = itemActive + 1;
+     }
+     console.log(itemActive)
+ 
+     const activeItem = items[itemActive]
+     const circleItem = circles[itemActive]
+ 
+     
+     activeItem.classList.add('active')
+     lastActiveItem.classList.remove('active')
+ 
+     circleItem.classList.add('active')
+     lastCircleActive.classList.remove('active')
+},2000);
